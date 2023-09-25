@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 // react bootstrap component
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
 
 // react icons 
 import { RiEditBoxFill } from 'react-icons/ri';
