@@ -11,7 +11,7 @@ import { MdOutlineCancel } from 'react-icons/md'
 
 import LapImg from '../../../utils/images/MacBook Pro 16.png'
 
-import './style.css'
+// import './style.css'
 
 // firebase
 import firebase from 'firebase/compat/app';
@@ -187,7 +187,7 @@ function MyVerticallyCenteredModal(props) {
             </Modal.Body>
             <Modal.Footer className='d-flex justify-content-start'>
                 <Button
-                    className='px-5'
+                    className='px-5 mx-auto'
                     style={{ background: 'black', borderRadius: '1.3rem' }}
                     onClick={handleSaveInModal}>Save</Button>
             </Modal.Footer>
@@ -203,7 +203,7 @@ const EditModal = ({ pageCounter }) => {
             <Button
                 className='text-center editmodalbtn'
                 onClick={() => setModalShow(true)}
-                style={{ backgroundColor: 'white', color: 'black', border: '1px solid black' }}
+                style={{ backgroundColor: 'white', color: 'black', border: '1px solid black'}}
             >
                 EDIT <BsPencil />
 
