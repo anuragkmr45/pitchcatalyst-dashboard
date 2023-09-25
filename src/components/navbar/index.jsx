@@ -37,7 +37,7 @@ export default function NavbarComp() {
                 style={{
                     paddingLeft: window.location.pathname === '/' ? `${scrolling / clientHeight * 5}%` :
                         window.location.pathname === '/about-us' && `${scrolling / clientHeight * 15.2}%`,
-                    opacity: window.location.pathname !== '/' && window.location.pathname !== '/about-us' ? 0 : 1
+                    opacity: window.location.pathname !== '/' && window.location.pathname !== '/about-us' ? 0 : 1,
                 }}
             >
                 <div className="padding-div"></div>

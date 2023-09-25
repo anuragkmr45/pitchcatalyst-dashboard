@@ -1,0 +1,11 @@
+@media screen and (min-width: 15in) {
+    .cardStyle{
+        width: 18rem;
+    }
+}
+
+@media screen and (min-width: 13in) and (max-width: 15in) {
+        .cardStyle{
+        width: 15rem;
+    }
+}

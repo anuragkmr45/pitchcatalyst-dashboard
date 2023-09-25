@@ -7,7 +7,7 @@ const BadgeComponent = ({ pageCounter }) => {
         <>
             <h4>
                 <Badge bg="light" text="dark" className="px-lg-3">
-                    {pageCounter} /5
+                    {pageCounter} /4
                 </Badge>
             </h4>
 

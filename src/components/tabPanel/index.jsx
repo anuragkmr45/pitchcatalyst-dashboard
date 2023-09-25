@@ -75,7 +75,7 @@ const TabPanel = ({ searchQuery }) => {
     return (
         <>
             <div>
-                <div className='d-flex justify-content-between px-5 mb-1'>
+                <div className='d-flex justify-content-between px-5 lg-mb-3 md-mb-1'>
                     <button
                         className={activeTab === 1 ? 'active' : ''}
                         onClick={() => handleTabChange(1)}
@@ -116,17 +116,14 @@ const TabPanel = ({ searchQuery }) => {
             <SimpleBar
                 className={`fade-in ${isLoaded ? 'active' : ''}`}
                 style={{
-                    height: '61vh',
+                    height: '70vh',
                     width: '100%',
-                    // overflowY: 'scroll',
-                    // border: '1px solid white',
-                    // borderRadius: '1rem',
                 }}>
                 <div className={`tab-content ${showContent ? 'show' : ''}`}>
                     <div className={`tab-pane ${activeTab === 1 ? 'active' : ''}`}>
                         <Row>
                             {filteredData.map((item, index) => (
-                                <Col key={index} lg={4} md={4} sm={12}>
+                                <Col key={index} lg={3} md={4} sm={12}>
                                     <IconCard
                                         redirectLink={item.link}
                                         icon={item.icon}
@@ -140,7 +137,7 @@ const TabPanel = ({ searchQuery }) => {
                     <div className={`tab-pane ${activeTab === 2 ? 'active' : ''}`}>
                         <Row>
                             {filteredDataArticleNBlog.map((item, index) => (
-                                <Col key={index} lg={4} md={4} sm={12}>
+                                <Col key={index} lg={3} md={4} sm={12}>
                                     <IconCard
                                         redirectLink={item.link}
                                         icon={item.icon}
@@ -154,7 +151,7 @@ const TabPanel = ({ searchQuery }) => {
                     <div className={`tab-pane ${activeTab === 3 ? 'active' : ''}`}>
                         <Row>
                             {filteredDataGeneralWriting.map((item, index) => (
-                                <Col key={index} lg={4} md={4} sm={12}>
+                                <Col key={index} lg={3} md={4} sm={12}>
                                     <IconCard
                                         redirectLink={item.link}
                                         icon={item.icon}
@@ -168,7 +165,7 @@ const TabPanel = ({ searchQuery }) => {
                     <div className={`tab-pane ${activeTab === 4 ? 'active' : ''}`}>
                         <Row>
                             {filteredDataAudio.map((item, index) => (
-                                <Col key={index} lg={4} md={4} sm={12}>
+                                <Col key={index} lg={3} md={4} sm={12}>
                                     <IconCard
                                         redirectLink={item.link}
                                         icon={item.icon}
@@ -182,7 +179,7 @@ const TabPanel = ({ searchQuery }) => {
                     <div className={`tab-pane ${activeTab === 5 ? 'active' : ''}`}>
                         <Row>
                             {filteredDataPhotoSonic.map((item, index) => (
-                                <Col key={index} lg={4} md={4} sm={12}>
+                                <Col key={index} lg={3} md={4} sm={12}>
                                     <IconCard
                                         redirectLink={item.link}
                                         icon={item.icon}

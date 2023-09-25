@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+import './style.css'
+
 import { useAuth } from "../../../pages/login/auth";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -36,20 +38,11 @@ const ModalComp = () => {
     return (
         <>
             <Button
-                className='text-center'
+                className='text-center checkoutdeck'
                 onClick={() => {
                     setShow(true);
                     renderLink();
-                }}
-                style={{
-                    zIndex: 5,
-                    background: 'inherit',
-                    color: 'black',
-                    boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
-                    border: 'none',
-                    position: 'relative',
-                    bottom: '9rem'
-                }} >
+                }}>
                 <b>Checkout <br /> Your Deck</b>
             </Button>
             <Modal

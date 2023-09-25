@@ -1,0 +1,17 @@
+@media screen and (min-width: 15in) {
+    .collabourate{
+        position: relative;
+        bottom: -15rem;
+
+    }
+}
+@media screen and (min-width: 13in) and (max-width: 15in) {
+        .collabourate{
+        position: relative;
+        bottom: 1rem;
+
+    }
+}
+@media screen and (min-width: 11in) {
+  /* Your CSS styles for screens greater than 11 inches go here */
+}

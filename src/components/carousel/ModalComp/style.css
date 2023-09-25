@@ -1,0 +1,24 @@
+.checkoutdeck {
+  zindex: 5;
+  background: inherit;
+  color: black;
+  boxshadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+@media screen and (min-width: 15in) {
+    .checkoutdeck{
+      position: absolute;
+      right: 49%
+    }
+}
+@media screen and (min-width: 13in) and (max-width: 15in) {
+        .collabourate{
+        position: relative;
+        bottom: -8rem;
+
+    }
+}
+@media screen and (min-width: 11in) {
+  /* Your CSS styles for screens greater than 11 inches go here */
+}

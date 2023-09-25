@@ -14,6 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 // react icons
 import { AiOutlineLeft } from 'react-icons/ai';
 
+import './style.css'
+
 // firebase
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -68,39 +70,27 @@ const EditDeck = () => {
                 </div>
             </div>
 
-            <div
-                style={{
-                    width: '10rem',
-                    height: '90vh',
-                    backgroundColor: 'white',
-                    position: 'absolute',
-                    top: '13vh',
-                    left: '44%',
-                    zIndex: '1'
-                }} ></div>
+            <div className="d-flex justify-content-center">
+                <div
+                    style={{
+                        width: '12rem',
+                        height: '100vh',
+                        backgroundColor: 'white',
+                        position: 'absolute',
+                        top: '5rem',
+                    }} ></div>
+            </div>
 
             <div
                 className='text-center'
                 style={{
                     zIndex: '10',
                     position: 'absolute',
-                    top: '6rem',
+                    top: '8rem',
                     width: '100%',
                 }}>
                 <EditModal pageCounter={pageCounter} />
                 <CarouselComp pageCounter={pageCounter} setPageCounter={setPageCounter} />
-
-                <div
-                    style={{
-                        width: '60%',
-                        backgroundColor: 'white',
-                        height: '2rem',
-                        borderRadius: '1rem',
-                        margin: '0 auto',
-                        position: 'relative',
-                        bottom: '23.5vh',
-                    }}
-                ></div>
 
             </div>
             <ToastContainer position="bottom-center" />

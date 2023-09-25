@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tilt } from 'react-tilt';
 import Card from 'react-bootstrap/Card';
+import './style.css'
 
 const ServiceCard = ({ navigationLink, icon, titleText, childText }) => {
 

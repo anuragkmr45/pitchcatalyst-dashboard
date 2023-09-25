@@ -13,6 +13,8 @@ import { MdOutlineCancel } from 'react-icons/md'
 
 import LapImg from '../../../utils/images/MacBook Pro 16.png'
 
+import './style.css'
+
 // firebase
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -88,6 +90,7 @@ function MyVerticallyCenteredModal(props) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
+            className='edit-deck-modal'
         >
             <Modal.Header style={{ color: 'black ' }}>
                 <Modal.Title>
@@ -114,17 +117,19 @@ function MyVerticallyCenteredModal(props) {
             </Modal.Header>
             <Modal.Body style={{
                 color: 'black',
-                height: '50vh'
+                height: '50vh',
+                width: '40rem',
+                backgroundColor: 'white'
             }} >
-                <Row>
-                    <Col>
+                <div className='d-flex justify-content-center'>
+                    <div>
                         <img src={LapImg} alt="" style={{
-                            height: '40vh',
+                            height: '30vh',
                             position: 'relative',
                             right: '8rem'
                         }} />
-                    </Col>
-                    <Col>
+                    </div>
+                    <div>
                         <Formik>
                             <Form className="d-flex flex-column">
                                 <div className="d-flex flex-column my-2">
@@ -179,8 +184,8 @@ function MyVerticallyCenteredModal(props) {
 
                             </Form>
                         </Formik>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </Modal.Body>
             <Modal.Footer className='d-flex justify-content-start'>
                 <Button
@@ -198,15 +203,10 @@ const EditModal = ({ pageCounter }) => {
     return (
         <>
             <Button
-                className='text-center'
+                className='text-center editmodalbtn'
                 onClick={() => setModalShow(true)}
-                style={{
-                    width: '6rem',
-                    backgroundColor: 'white',
-                    color: 'black',
-                    boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
-                    border: 'none'
-                }} >
+                style={{ backgroundColor: 'white', color: 'black', border: '1px solid black' }}
+            >
                 EDIT <BsPencil />
 
             </Button>

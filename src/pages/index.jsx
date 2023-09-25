@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 // react bootstrap component
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 // react icons 
 import { RiEditBoxFill } from 'react-icons/ri';
@@ -99,7 +97,7 @@ const Home = () => {
                                 onHide={() => setModalShow(false)}
                             />
                         </div>
-                        <img src={Logo} alt="pitch catalyst" style={{ width: '8rem' }} />
+                        <img src={Logo} alt="pitch catalyst" id="logo" />
                         <div>
                             <div className="d-flex">
                                 <Button
@@ -125,55 +123,45 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="service-container" >
-                    <Container className='py-3' >
-                        <div>
+                    <div className='py-3 ' >
+                        <div className='index-text' >
                             <p className='text-center' style={{ fontSize: '1.5rem' }} >You Can <b>Track Our Work</b> </p>
                         </div>
-                        <div className='my-lg-4'>
-                            <Row>
-                                <Col lg='3' >
-                                    {cardVisibility.deckEditor && (
-                                        <ServiceCard
-                                            navigationLink="/deck-editor"
-                                            icon={<RiEditBoxFill />}
-                                            titleText="Edit Pitch Deck"
-                                            childText="Now You Can Edit Your Animated Pitch Deck Anytime Anywhere"
-                                        />
-                                    )}
-                                </Col>
-                                <Col lg='3'>
-                                    {cardVisibility.analytics && (
-                                        <ServiceCard
-                                            navigationLink="/analytics"
-                                            icon={<IoMdAnalytics />}
-                                            titleText="Analytics"
-                                            childText="Now You Can Check Your Appearance Anytime Anywhere"
-                                        />
-                                    )}
-                                </Col>
-                                <Col lg='3'>
-                                    {cardVisibility.createSubdomain && (
-                                        <ServiceCard
-                                            navigationLink="/create-subdomain"
-                                            icon={<TbWorldCode />}
-                                            titleText="Create Subdomain"
-                                            childText="Now Present World Wide"
-                                        />
-                                    )}
-                                </Col>
-                                <Col lg='3'>
-                                    {cardVisibility.pitchAI && (
-                                        <ServiceCard
-                                            navigationLink="/pitchAI-editor"
-                                            icon={<GiArtificialIntelligence />}
-                                            titleText="Pitch AI"
-                                            childText="Make Your Deck Best Presentable Using AI Tools"
-                                        />
-                                    )}
-                                </Col>
-                            </Row>
+                        <div className='d-flex justify-content-around px-5 mx-5'>
+                            {cardVisibility.deckEditor && (
+                                <ServiceCard
+                                    navigationLink="/deck-editor"
+                                    icon={<RiEditBoxFill />}
+                                    titleText="Edit Pitch Deck"
+                                    childText="Now You Can Edit Your Animated Pitch Deck Anytime Anywhere"
+                                />
+                            )}
+                            {cardVisibility.analytics && (
+                                <ServiceCard
+                                    navigationLink="/analytics"
+                                    icon={<IoMdAnalytics />}
+                                    titleText="Analytics"
+                                    childText="Now You Can Check Your Appearance Anytime Anywhere"
+                                />
+                            )}
+                            {cardVisibility.createSubdomain && (
+                                <ServiceCard
+                                    navigationLink="/create-subdomain"
+                                    icon={<TbWorldCode />}
+                                    titleText="Create Subdomain"
+                                    childText="Now Present World Wide"
+                                />
+                            )}
+                            {cardVisibility.pitchAI && (
+                                <ServiceCard
+                                    navigationLink="/pitchAI-editor"
+                                    icon={<GiArtificialIntelligence />}
+                                    titleText="Pitch AI"
+                                    childText="Make Your Deck Best Presentable Using AI Tools"
+                                />
+                            )}
                         </div>
-                    </Container >
+                    </div >
                     <Collaborator />
                 </div>
             </div>

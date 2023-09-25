@@ -63,7 +63,7 @@ function SideNav() {
     ];
 
     const toggleNav = () => {
-        setSideNavWidth(sideNavWidth === 0 ? 350 : 0);
+        setSideNavWidth(sideNavWidth === 0 ? 400 : 0);
     };
 
     return (
@@ -77,7 +77,7 @@ function SideNav() {
                     <Container className='mt-5 d-flex flex-column justify-content-between' style={{ color: 'black' }} >
                         {links.map((link, index) => (
                             <Link
-                                className='pl-5'
+                                className='pl-5 sm-my-0 md-my-0 lg-my-5'
                                 key={index}
                                 to={link.link}
                                 style={linkStyles(index)}

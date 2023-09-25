@@ -3,12 +3,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { TbUsersGroup } from 'react-icons/tb'
+import './style.css'
 
 const Collaborator = () => {
 
     return (
         <div
-            className='mx-auto'
+            className='mx-auto collabourate'
             style={{
                 border: '1px solid #E1FF02',
                 borderRadius: '0.5rem',
