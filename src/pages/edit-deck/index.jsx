@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // components
 import Badge from '../../components/badge'
@@ -36,12 +36,39 @@ const EditDeck = () => {
         { text: 'Edit Deck' },
     ];
 
+    const [sidebarVisible, setSidebarVisible] = useState(false);
+    const sidebarRef = useRef(null);
+  
+    const toggleSidebar = () => {
+      setSidebarVisible(!sidebarVisible);
+    };
+  
     useEffect(() => {
+      if (sidebarVisible) {
         document.body.style.overflow = 'hidden';
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, []);
+        document.addEventListener('click', handleOutsideClick);
+      } else {
+        document.body.style.overflow = 'unset';
+        document.removeEventListener('click', handleOutsideClick);
+      }
+  
+      return () => {
+        document.removeEventListener('click', handleOutsideClick);
+      };
+    }, [sidebarVisible]);
+  
+    const handleOutsideClick = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setSidebarVisible(false);
+      }
+    };
+
+    // useEffect(() => {
+    //     document.body.style.overflow = 'hidden';
+    //     return () => {
+    //         document.body.style.overflow = 'unset';
+    //     };
+    // }, []);
 
 
     return (
@@ -66,18 +93,40 @@ const EditDeck = () => {
                 </div>
                 <div className="d-flex mt-1 ">
                     <p className='mx-3 mt-1' >Total <br /> <span style={{ color: '#E1FF00' }}>Slides</span></p>
-                    <Badge pageCounter={pageCounter} />
+                    <Badge 
+                    pageCounter={pageCounter} 
+                    toggleSidebar={toggleSidebar}
+                    sidebarVisible={sidebarVisible}
+                    />
                 </div>
             </div>
+
+            {sidebarVisible && (
+        <div
+          ref={sidebarRef}
+          style={{
+            width: '15%',
+            height: '100%',
+            backgroundColor: 'white',
+            position: 'fixed',
+            top: '0',
+            right: '0',
+            zIndex: '999',
+            boxShadow: '2px 0px 5px rgba(0, 0, 0, 0.2)',
+          }}
+        >
+          {/* Add your sidebar content here */}
+        </div>
+      )}
 
             <div className="d-flex justify-content-center">
                 <div
                     style={{
-                        width: '12rem',
-                        height: '100vh',
+                        width: '15%',
+                        height: '200vh',
                         backgroundColor: 'white',
                         position: 'absolute',
-                        top: '5rem',
+                        top: '12%',
                     }} ></div>
             </div>
 
@@ -86,7 +135,7 @@ const EditDeck = () => {
                 style={{
                     zIndex: '10',
                     position: 'absolute',
-                    top: '8rem',
+                    bottom: '0',
                     width: '100%',
                 }}>
                 <EditModal pageCounter={pageCounter} />

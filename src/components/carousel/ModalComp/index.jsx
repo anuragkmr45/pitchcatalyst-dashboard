@@ -43,7 +43,7 @@ const ModalComp = () => {
                     setShow(true);
                     renderLink();
                 }}>
-                <b>Checkout <br /> Your Deck</b>
+                <b>Checkout <br /> Status</b>
             </Button>
             <Modal
                 size="lg"

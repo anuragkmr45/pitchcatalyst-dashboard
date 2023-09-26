@@ -9,7 +9,10 @@ import { Formik, Form, Field } from 'formik';
 
 import { MdOutlineCancel } from 'react-icons/md'
 
-import LapImg from '../../../utils/images/MacBook Pro 16.png'
+import HomeImg from '../../../utils/images/decks/1-removebg-preview.png'
+import ProbImg from '../../../utils/images/decks/2-removebg-preview.png'
+import SolImg from '../../../utils/images/decks/3-removebg-preview.png'
+import USPImg from '../../../utils/images/decks/4-removebg-preview.png'
 
 // import './style.css'
 
@@ -74,6 +77,12 @@ function MyVerticallyCenteredModal(props) {
         }
     };
 
+    const slideImages = {
+        'HOME ': HomeImg,
+        'PROBLEM ': ProbImg,
+        'SOLUTION ': SolImg,
+        'USP' : USPImg,
+    }
     const slideTitles = [
         'HOME ',
         'PROBLEM ',
@@ -121,11 +130,15 @@ function MyVerticallyCenteredModal(props) {
             }} >
                 <div className='d-flex justify-content-center'>
                     <div>
-                        <img src={LapImg} alt="" style={{
-                            height: '30vh',
-                            position: 'relative',
-                            right: '8rem'
-                        }} />
+                    <img
+                                src={slideImages[slideTitles[props.pageCounter - 1]]}
+                                alt=""
+                                style={{
+                                    width: '100%',
+                                    position: 'relative',
+                                    right: '8rem'
+                                }}
+                            />
                     </div>
                     <div>
                         <Formik>

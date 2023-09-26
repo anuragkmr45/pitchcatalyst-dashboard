@@ -34,17 +34,7 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
 
 
     return (
-        <>
-            {/* <div
-                style={{
-                    width: '12rem',
-                    height: '100vh',
-                    backgroundColor: 'white',
-                    position: 'absolute',
-                    top: '0',
-                    // left: '50%',
-                    zIndex: '0',
-                }} ></div> */}
+        <div className="carosuel">
             <input
                 type="radio"
                 name="position"
@@ -102,7 +92,7 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
                     <GrFormNext />
                 </button>
             </div>
-        </>
+        </div>
     );
 };
 

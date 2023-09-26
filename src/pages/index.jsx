@@ -122,11 +122,10 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="service-container" >
-                    <div className='py-3 ' >
                         <div className='index-text' >
                             <p className='text-center' style={{ fontSize: '1.5rem' }} >You Can <b>Track Our Work</b> </p>
                         </div>
-                        <div className='d-flex justify-content-around px-5 mx-5'>
+                        <div className='d-flex justify-content-around '>
                             {cardVisibility.deckEditor && (
                                 <ServiceCard
                                     navigationLink="/deck-editor"
@@ -160,7 +159,6 @@ const Home = () => {
                                 />
                             )}
                         </div>
-                    </div >
                     <Collaborator />
                 </div>
             </div>
