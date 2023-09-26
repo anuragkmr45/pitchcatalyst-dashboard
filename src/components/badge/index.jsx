@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Badge from 'react-bootstrap/Badge';
 
 const BadgeComponent = ({ pageCounter, toggleSidebar, sidebarVisible  }) => {
