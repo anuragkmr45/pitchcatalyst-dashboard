@@ -9,10 +9,17 @@ import './style.css';
 // components
 import ModalComp from './ModalComp'
 
+// yaha image firestore k sath laganan h
+// **------------------------------------------------------------------------------------** //
+// **------------------------------------------------------------------------------------** //
+// **------------------------------------------------------------------------------------** //
 import Img1 from '../../utils/images/decks/1-removebg-preview.png'
 import Img2 from '../../utils/images/decks/2-removebg-preview.png'
 import Img3 from '../../utils/images/decks/3-removebg-preview.png'
 import Img4 from '../../utils/images/decks/4-removebg-preview.png'
+// **------------------------------------------------------------------------------------** //
+// **------------------------------------------------------------------------------------** //
+// **------------------------------------------------------------------------------------** //
 // import Img5 from '../../utils/images/decks/5-removebg-preview.png'
 
 const CarouselComp = ({ pageCounter, setPageCounter }) => {
