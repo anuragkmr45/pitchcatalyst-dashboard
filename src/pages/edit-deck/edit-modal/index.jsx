@@ -9,10 +9,18 @@ import { Formik, Form, Field } from 'formik';
 
 import { MdOutlineCancel } from 'react-icons/md'
 
+// yaha se bhe tujhe same image ko import krna h 
+// jab subha krega mujhe call krna bata donga kesa kaam kr rha h 
+// ** -------------------------------------------------------------------------------- ** //
+// ** -------------------------------------------------------------------------------- ** //
+// ** -------------------------------------------------------------------------------- ** //
 import HomeImg from '../../../utils/images/decks/1-removebg-preview.png'
 import ProbImg from '../../../utils/images/decks/2-removebg-preview.png'
 import SolImg from '../../../utils/images/decks/3-removebg-preview.png'
 import USPImg from '../../../utils/images/decks/4-removebg-preview.png'
+// ** -------------------------------------------------------------------------------- ** //
+// ** -------------------------------------------------------------------------------- ** //
+// ** -------------------------------------------------------------------------------- ** //
 
 // import './style.css'
 
