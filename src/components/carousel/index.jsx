@@ -1,29 +1,13 @@
-import React, { useState } from 'react';
-
-// react icons 
+import React, { useState, useEffect } from 'react';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
-
-// style 
 import './style.css';
-
-// components
-import ModalComp from './ModalComp'
-
-// yaha image firestore k sath laganan h
-// **------------------------------------------------------------------------------------** //
-// **------------------------------------------------------------------------------------** //
-// **------------------------------------------------------------------------------------** //
-import Img1 from '../../utils/images/decks/1-removebg-preview.png'
-import Img2 from '../../utils/images/decks/2-removebg-preview.png'
-import Img3 from '../../utils/images/decks/3-removebg-preview.png'
-import Img4 from '../../utils/images/decks/4-removebg-preview.png'
-// **------------------------------------------------------------------------------------** //
-// **------------------------------------------------------------------------------------** //
-// **------------------------------------------------------------------------------------** //
-// import Img5 from '../../utils/images/decks/5-removebg-preview.png'
+import ModalComp from './ModalComp';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
 
 const CarouselComp = ({ pageCounter, setPageCounter }) => {
     const [activeSlide, setActiveSlide] = useState(1);
+    const [imageUrls, setImageUrls] = useState([]);
 
     const handlePrevSlide = () => {
         if (activeSlide > 1) {
@@ -33,15 +17,47 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
     };
 
     const handleNextSlide = () => {
-        if (activeSlide < 4) { // Assuming you have 5 items (change this number accordingly)
+        if (activeSlide < 4) {
             setActiveSlide(activeSlide + 1);
             setPageCounter((prevCounter) => prevCounter + 1);
         }
     };
 
+    useEffect(() => {
+        const fetchImages = async () => {
+            const storage = firebase.storage();
+            const user = firebase.auth().currentUser;
+
+            if (user) {
+                const userId = user.uid;
+                const imageRefs = [
+                    '1-removebg-preview.png',
+                    '2-removebg-preview.png',
+                    '3-removebg-preview.png',
+                    '4-removebg-preview.png',
+                ];
+
+                const urls = await Promise.all(
+                    imageRefs.map(async (imageName) => {
+                        try {
+                            const imageRef = storage.ref(`${ userId } / ${ imageName }`);
+                            return await imageRef.getDownloadURL();
+                        } catch (error) {
+                            console.error('Error getting image URL:', error);
+                            return null;
+                        }
+                    })
+                );
+
+                setImageUrls(urls);
+            }
+        };
+
+        fetchImages();
+    }, []);
 
     return (
-        <div className="carosuel">
+        <div className="carousel">
             <input
                 type="radio"
                 name="position"
@@ -66,29 +82,17 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
                 checked={activeSlide === 4}
                 onChange={() => setActiveSlide(4)}
             />
-            {/* <input
-                type="radio"
-                name="position"
-                checked={activeSlide === 5}
-                onChange={() => setActiveSlide(5)}
-            /> */}
 
             <main id="carousel">
-                <div className={`item ${activeSlide === 1 ? 'tilted-item' : ''} ${activeSlide !== 1 ? 'inactive' : ''}`}>
-                    <img src={Img1} alt="" />
-                </div>
-                <div className={`item ${activeSlide === 2 ? 'tilted-item' : ''} ${activeSlide !== 2 ? 'inactive' : ''}`}>
-                    <img src={Img2} alt="" />
-                </div>
-                <div className={`item ${activeSlide === 3 ? 'tilted-item' : ''} ${activeSlide !== 3 ? 'inactive' : ''}`}>
-                    <img src={Img3} alt="" />
-                </div>
-                <div className={`item ${activeSlide === 4 ? 'tilted-item' : ''} ${activeSlide !== 4 ? 'inactive' : ''}`}>
-                    <img src={Img4} alt="" />
-                </div>
-                {/* <div className={`item ${activeSlide === 5 ? 'tilted-item' : ''} ${activeSlide !== 5 ? 'inactive' : ''}`}>
-                    <img src={Img5} alt="" />
-                </div> */}
+                {imageUrls.map((imageUrl, index) => (
+                    <div
+                        key={index}
+                        className={`item ${activeSlide === index + 1 ? 'tilted-item' : ''} ${activeSlide !== index + 1 ? 'inactive' : ''
+                            }`}
+                    >
+                        <img src={imageUrl} alt='' />
+                    </div>
+                ))}
             </main>
             <div className="buttons d-flex justify-content-around">
                 <button className='nav-btn' onClick={handlePrevSlide} disabled={activeSlide === 1}>
