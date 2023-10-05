@@ -1,4 +1,4 @@
-@media screen and (min-width: 15in) {
+/* @media screen and (min-width: 15in) {
     .cardStyle{
         width: 18rem;
     }
@@ -8,4 +8,9 @@
         .cardStyle{
         width: 15rem;
     }
+} */
+
+.cardStyle{
+    width: 90%;
+    margin: 0 1px;
 }

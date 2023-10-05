@@ -10,7 +10,7 @@
 }
 
 .service-container {
-  /* height: 62vh; */
+  height: 100vh;
   border-right: 0.2rem solid #e1ff00;
   border-left: 0.2rem solid #e1ff00;
 }
@@ -18,24 +18,19 @@
 .mainpage-container {
   background-image: url("https://rentblob.blob.core.windows.net/pitch/img/Pitch-Catalyst/home-page-imgs/vector53.png");
   background-size: cover;
+  /* height: 100vh; */
 }
 
-@media screen and (min-width: 15in) {
+
+/* @media screen and (min-width: 15in) {
 .index-text{
   padding: 3rem 0
-}
-
-#logo{
-  width: 18%
 }
 }
 
 @media screen and (min-width: 13in) and (max-width: 15in) {
-#logo{
-  height: 3rem
-}
+  
 }
 
 @media screen and (min-width: 11in) {
-  /* Your CSS styles for screens greater than 11 inches go here */
-}
+} */

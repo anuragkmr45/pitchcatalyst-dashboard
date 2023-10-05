@@ -1,50 +1,66 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './style.css'
 // react bootstrap component
-import Modal from 'react-bootstrap/Modal';
+import { Modal, Dropdown, Button } from 'react-bootstrap';
 
 const VerticallyCenteredModal = (props) => {
+
+    const { subDomains } = props;
+
+    const [selectedItem, setSelectedItem] = useState(subDomains[0]); // Initialize with the first element
+
+    const handleItemClick = (index) => {
+        // Set the selected item based on the clicked item's index
+        setSelectedItem(subDomains[index]);
+    };
+
+    useEffect(() => {
+        // Update the selectedItem when subDomains changes (e.g., when fetched from the server)
+        if (subDomains.length > 0) {
+            setSelectedItem(subDomains[0]);
+        }
+    }, [subDomains]);
+
     return (
         <Modal
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
-        // style={{ backgroundColor: 'pink' }}
         >
-            {/* <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
-                </Modal.Title>
-            </Modal.Header> */}
             <Modal.Body className='text-center' style={{ backgroundColor: 'rgba(225, 255, 0, 1)', color: 'black' }}>
-                <h3>Feature Comming Soon</h3>
+                <Dropdown>
+                    <div className="d-flex justify-content-around">
+                        <h2 className='text-start'>Choose <br /> Subdomain</h2>
+                        <Dropdown.Toggle
+                            variant="success"
+                            id="dropdown-basic"
+                            style={{ color: 'white', width: '60%', boxShadow: '5px 4px 1px 0px rgba(0, 0, 0, 0.50)' }}>
+                            {selectedItem || (subDomains.length > 0 ? subDomains[0] : 'List Of Subdomains')}
+                        </Dropdown.Toggle>
+                        <Button >
+                            <Link to='/create-subdomain' style={{textDecoration: 'none', color: 'white'}}>
+                                ADD
+                            </Link>
+                        </Button>
+                    </div>
+
+
+                    {subDomains && (
+                        <Dropdown.Menu>
+                            {subDomains.map((data, index) => {
+                                return (
+                                    <Dropdown.Item key={index} onClick={() => handleItemClick(index)}>{data}</Dropdown.Item>
+                                )
+                            })}
+                        </Dropdown.Menu>
+                    )}
+
+                </Dropdown>
             </Modal.Body>
-            {/* <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer> */}
         </Modal>
     );
 }
-
-// const ModalComp = ({ title, topic }) => {
-//     const [modalShow, setModalShow] = useState(false);
-
-//     return (
-//         <>
-// <div className="d-flex">
-//     <Button className='px-3' style={{ backgroundColor: '#0D0E0E', border: '1px solid white', borderTopRightRadius: '2rem', outline: 'none' }} onClick={() => setModalShow(true)}>
-//         {title}
-//         <BsFillCaretDownFill style={{ color: '#E1FF00' }} className='ml-4' />
-//     </Button>
-// </div >
-
-// <MyVerticallyCenteredModal
-//     show={modalShow}
-//     onHide={() => setModalShow(false)}
-// />
-//         </>
-//     );
-// }
 
 export default VerticallyCenteredModal;

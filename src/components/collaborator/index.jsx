@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { TbUsersGroup } from 'react-icons/tb'
-import './style.css'
+// import './style.css'    
 
 const Collaborator = () => {
 
@@ -13,7 +13,8 @@ const Collaborator = () => {
             style={{
                 border: '1px solid #E1FF02',
                 borderRadius: '0.5rem',
-                width: '50rem'
+                width: '60%',
+                position: 'relative',
             }}>
             <div className="py-4 mx-auto">
                 <div className="d-flex justify-content-around my-auto">
