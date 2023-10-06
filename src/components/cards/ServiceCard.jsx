@@ -4,14 +4,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tilt } from 'react-tilt';
 import Card from 'react-bootstrap/Card';
-import './style.css'
 
 const ServiceCard = ({ navigationLink, icon, titleText, childText }) => {
 
 
     const iconStyle = {
         fontSize: '4rem',
-        border: '2px solid #E1FF02',
+        border: '1px solid #E1FF02',
         borderRadius: '4rem',
         padding: '0.5rem',
         color: 'white',
@@ -25,8 +24,8 @@ const ServiceCard = ({ navigationLink, icon, titleText, childText }) => {
     };
 
     return (
-        <Tilt options={{ reverse: false, scale: 1 }} className='text-center'>
-            <div className="cardStyle py-0 mx-auto px-auto text-center" style={{ borderRadius: '1rem' }}>
+        <Tilt options={{ reverse: false, scale: 1 }} className='text-center mx-1 px-auto'>
+            <div className="cardStyle py-0 mx-auto px-auto text-center" style={{ borderRadius: '1rem'}}>
                 <Link to={navigationLink} style={{ color: 'inherit', textDecoration: 'none' }}>
                     {React.cloneElement(icon, { style: iconStyle })}
                     <Card.Body style={cardBodyStyle}>

@@ -32,12 +32,12 @@ const Home = () => {
 
     const [modalShow, setModalShow] = useState(false);
     const [fadeIn, setFadeIn] = useState(false);
-    const [cardVisibility, setCardVisibility] = useState({
-        deckEditor: false,
-        analytics: false,
-        createSubdomain: false,
-        pitchAI: false
-    });
+    // const [cardVisibility, setCardVisibility] = useState({
+    //     deckEditor: false,
+    //     analytics: false,
+    //     createSubdomain: false,
+    //     pitchAI: false
+    // });
 
     useEffect(() => {
         // Trigger the fade-in animation after a delay
@@ -57,22 +57,21 @@ const Home = () => {
     //     };
     // }, []);
 
-    useEffect(() => {
-        // Function to gradually show each card with a delay
-        const showCardWithDelay = (cardName, delay) => {
-            setTimeout(() => {
-                setCardVisibility(prevVisibility => ({
-                    ...prevVisibility,
-                    [cardName]: true
-                }));
-            }, delay);
-        };
+    // useEffect(() => {
+    //     const showCardWithDelay = (cardName, delay) => {
+    //         setTimeout(() => {
+    //             setCardVisibility(prevVisibility => ({
+    //                 ...prevVisibility,
+    //                 [cardName]: true
+    //             }));
+    //         }, delay);
+    //     };
 
-        showCardWithDelay("deckEditor", 300); // Adjust the delays as needed
-        showCardWithDelay("analytics", 400);
-        showCardWithDelay("createSubdomain", 500);
-        showCardWithDelay("pitchAI", 600);
-    }, []);
+    //     showCardWithDelay("deckEditor", 300); 
+    //     showCardWithDelay("analytics", 400);
+    //     showCardWithDelay("createSubdomain", 500);
+    //     showCardWithDelay("pitchAI", 600);
+    // }, []);
 
     const [subDomains, setSubDomians] = useState([])
     const { userId } = useAuth();
@@ -160,49 +159,42 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="service-container d-flex flex-column content-justify" style={{ overflowY: 'hidden' }} >
-                <div className='index-text'>
-                    <p className='text-center' style={{ fontSize: '100%' }} >You Can <b>Track Our Work</b> </p>
-                </div>
+                    <div className='index-text'>
+                        <p className='text-center' style={{ fontSize: '100%' }} >You Can <b>Track Our Work</b> </p>
+                    </div>
                     <Row className="box-container" style={{ overflowX: 'hidden', overflowY: 'hidden' }}>
-                        <Col className="text-center" >
-                            {cardVisibility.deckEditor && (
-                                <ServiceCard
-                                    navigationLink="/deck-editor"
-                                    icon={<RiEditBoxFill />}
-                                    titleText="Edit Pitch Deck"
-                                    childText="Now You Can Edit Your Animated Pitch Deck Anytime Anywhere"
-                                />
-                            )}
+                        <Col>
+                            <ServiceCard
+                                navigationLink="/deck-editor"
+                                icon={<RiEditBoxFill />}
+                                titleText="Edit Pitch Deck"
+                                childText="Now You Can Edit Your Animated Pitch Deck Anytime Anywhere"
+                            />
+
                         </Col>
-                        <Col className="text-center" >
-                            {cardVisibility.analytics && (
-                                <ServiceCard
-                                    navigationLink="/analytics"
-                                    icon={<IoMdAnalytics />}
-                                    titleText="Analytics"
-                                    childText="Now You Can Check Your Appearance Anytime Anywhere"
-                                />
-                            )}
+                        <Col>
+                            <ServiceCard
+                                navigationLink="/analytics"
+                                icon={<IoMdAnalytics />}
+                                titleText="Analytics"
+                                childText="Now You Can Check Your Appearance Anytime Anywhere"
+                            />
                         </Col>
-                        <Col className="text-center" >
-                            {cardVisibility.createSubdomain && (
-                                <ServiceCard
-                                    navigationLink="/create-subdomain"
-                                    icon={<TbWorldCode />}
-                                    titleText="Create Subdomain"
-                                    childText="Now Present World Wide"
-                                />
-                            )}
+                        <Col>
+                            <ServiceCard
+                                navigationLink="/create-subdomain"
+                                icon={<TbWorldCode />}
+                                titleText="Create Subdomain"
+                                childText="Now Present World Wide"
+                            />
                         </Col>
-                        <Col className="text-center" >
-                            {cardVisibility.pitchAI && (
-                                <ServiceCard
-                                    navigationLink="/pitchAI-editor"
-                                    icon={<GiArtificialIntelligence />}
-                                    titleText="Pitch AI"
-                                    childText="Make Your Deck Best Presentable Using AI Tools"
-                                />
-                            )}
+                        <Col>
+                            <ServiceCard
+                                navigationLink="/pitchAI-editor"
+                                icon={<GiArtificialIntelligence />}
+                                titleText="Pitch AI"
+                                childText="Make Your Deck Best Presentable Using AI Tools"
+                            />
                         </Col>
                     </Row>
 

@@ -18,10 +18,12 @@
 .mainpage-container {
   background-image: url("https://rentblob.blob.core.windows.net/pitch/img/Pitch-Catalyst/home-page-imgs/vector53.png");
   background-size: cover;
+  width: 100%;
 }
 
 .collabourate {
   width: 80%;
+  margin-top: 3%;
 }
 
 @media screen and (min-height: 600px) and (max-height: 768px) {
@@ -57,7 +59,7 @@ min-height: 768px;
 
   .collabourate {
     position: relative;
-    bottom: 52px;
+    bottom: 11%;
   }
         ..mainpage-container{
     max-height: 801px;
