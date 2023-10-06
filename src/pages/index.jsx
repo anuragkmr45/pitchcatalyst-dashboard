@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
 // react bootstrap component
-import { Button, Row, Col } from 'react-bootstrap';
+import { Button, Row, Col, Form } from 'react-bootstrap';
 
 // react icons 
 import { RiEditBoxFill } from 'react-icons/ri';
 import { IoMdAnalytics } from 'react-icons/io';
-import { TbWorldCode } from 'react-icons/tb';
+import { TbWorldCode, TbUsersGroup } from 'react-icons/tb';
 import { GiArtificialIntelligence } from 'react-icons/gi';
-import { BsFillCaretDownFill } from 'react-icons/bs'; 
+import { BsFillCaretDownFill } from 'react-icons/bs';
 
 // components
 import ServiceCard from '../components/cards/ServiceCard';
 import VerticallyCenteredModal from '../components/modal';
-import Collaborator from '../components/collaborator';
 
 // utils 
 import Logo from '../utils/images/logo.png'
@@ -105,7 +104,7 @@ const Home = () => {
     }
 
     return (
-        <div className={`fade-in ${fadeIn ? 'active' : ''}`} style={{ overflowX: 'hidden'}}>
+        <div className={`fade-in ${fadeIn ? 'active' : ''}`} style={{ overflowX: 'hidden' }}>
 
             <div className="mainpage-container">
                 <div className='text-center'>
@@ -160,12 +159,12 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="service-container d-flex flex-column justify-content-around align-items-center" style={{ overflowY: 'hidden'}} >
-                    <div className='index-text'>
-                        <p className='text-center' style={{ fontSize: '100%' }} >You Can <b>Track Our Work</b> </p>
-                    </div>
-                    <Row>
-                        <Col>
+                <div className="service-container d-flex flex-column content-justify" style={{ overflowY: 'hidden' }} >
+                <div className='index-text'>
+                    <p className='text-center' style={{ fontSize: '100%' }} >You Can <b>Track Our Work</b> </p>
+                </div>
+                    <Row className="box-container" style={{ overflowX: 'hidden', overflowY: 'hidden' }}>
+                        <Col className="text-center" >
                             {cardVisibility.deckEditor && (
                                 <ServiceCard
                                     navigationLink="/deck-editor"
@@ -175,7 +174,7 @@ const Home = () => {
                                 />
                             )}
                         </Col>
-                        <Col>
+                        <Col className="text-center" >
                             {cardVisibility.analytics && (
                                 <ServiceCard
                                     navigationLink="/analytics"
@@ -185,7 +184,7 @@ const Home = () => {
                                 />
                             )}
                         </Col>
-                        <Col>
+                        <Col className="text-center" >
                             {cardVisibility.createSubdomain && (
                                 <ServiceCard
                                     navigationLink="/create-subdomain"
@@ -195,7 +194,7 @@ const Home = () => {
                                 />
                             )}
                         </Col>
-                        <Col>
+                        <Col className="text-center" >
                             {cardVisibility.pitchAI && (
                                 <ServiceCard
                                     navigationLink="/pitchAI-editor"
@@ -206,7 +205,67 @@ const Home = () => {
                             )}
                         </Col>
                     </Row>
-                    <Collaborator />
+
+                    <div
+                        className='mx-auto collabourate'
+                        style={{
+                            border: '1px solid #E1FF02',
+                            borderRadius: '0.5rem',
+                        }}>
+                        <div className="py-4 mx-auto">
+                            <div className="d-flex justify-content-around my-auto">
+                                <div className='d-flex justify-content-between my-auto'>
+                                    <div
+                                        className='my-auto px-2 py-1 mx-2'
+                                        style={{
+                                            border: '1px solid rgba(225, 255, 0, 1)',
+                                            borderRadius: '100%'
+                                        }} >
+                                        <TbUsersGroup />
+                                    </div>
+                                    <div className='my-auto mx-2'>
+                                        <p className='mb-0'>COLLABORATOR</p>
+                                    </div>
+                                </div>
+                                <div className='my-auto'>
+                                    <Form inline='true' style={{ position: 'relative' }}>
+                                        <Row>
+                                            <Col xs="auto">
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder="Search"
+                                                    style={{
+                                                        borderRadius: '2rem',
+                                                        width: '20rem',
+                                                        position: 'absolute',
+                                                        right: '-5.5rem',
+                                                        backgroundColor: 'inherit',
+                                                        color: 'white',
+                                                        boxShadow: '5px 4px 1px 0px rgba(0, 0, 0, 0.50) inset'
+                                                    }}
+                                                />
+                                            </Col>
+                                            <Col xs="auto">
+                                                <Button
+                                                    // type="submit"
+                                                    className='py-auto mt-1'
+                                                    style={{
+                                                        zIndex: 1,
+                                                        borderRadius: '1rem',
+                                                        backgroundColor: '#E1FF00',
+                                                        color: 'black',
+                                                        // padding: '5px 10px',
+                                                        fontSize: '12px'
+                                                    }}>
+                                                    Submit
+                                                </Button>
+                                            </Col>
+                                        </Row>
+                                    </Form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div >
