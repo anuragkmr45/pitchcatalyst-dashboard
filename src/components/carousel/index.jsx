@@ -83,7 +83,7 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
                 onChange={() => setActiveSlide(4)}
             />
 
-            <main id="carousel">
+            <main id="carousel" style={{border: '2px solid white'}}>
                 {imageUrls.map((imageUrl, index) => (
                     <div
                         key={index}
@@ -93,6 +93,7 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
                         <img src={imageUrl} alt='' />
                     </div>
                 ))}
+                
             </main>
             <div className="buttons d-flex justify-content-around">
                 <button className='nav-btn' onClick={handlePrevSlide} disabled={activeSlide === 1}>

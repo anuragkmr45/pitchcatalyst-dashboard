@@ -4,8 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Formik, Form, Field } from 'formik';
 import { MdOutlineCancel } from 'react-icons/md';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
@@ -17,15 +15,6 @@ function MyVerticallyCenteredModal(props) {
     const [heading2, setHeading2] = useState("");
     const [heading3, setHeading3] = useState("");
 
-    console.log(setPageName)
-
-    const clearFormFields = () => {
-        setPageName("");
-        setHeading1("");
-        setHeading2("");
-        setHeading3("");
-    }
-
     const handleSaveToFirebase = async (editedContent) => {
         try {
             const user = firebase.auth().currentUser;
@@ -36,7 +25,7 @@ function MyVerticallyCenteredModal(props) {
 
             const userId = user.uid;
             const firestore = firebase.firestore();
-            const slideTitle = slideTitles[props.pageCounter - 1]; // Get the current slide title
+            const slideTitle = slideTitles[props.pageCounter - 1]; // Getting the current slide title
 
             const userDocRef = firestore.collection(userId).doc(slideTitle);
             const userDoc = await userDocRef.get();
@@ -57,13 +46,9 @@ function MyVerticallyCenteredModal(props) {
                 });
             }
 
-            clearFormFields();
-
-            // Close the modal
-            props.onHide();
-            toast.success("Edits Send For Review Successfully!");
+            console.log("Content saved to Database successfully!");
         } catch (error) {
-            toast.error('Error While Saving Data');
+            console.error('Error saving to Database:', error);
         }
     };
 
@@ -162,7 +147,7 @@ function MyVerticallyCenteredModal(props) {
                             // Handle form submission if needed
                         }}
                     >
-
+                        
                     </Formik>
                 </Modal.Title>
                 <MdOutlineCancel onClick={props.onHide} style={{ fontSize: '1.5rem', cursor: 'pointer' }} />
@@ -188,7 +173,7 @@ function MyVerticallyCenteredModal(props) {
                     <div>
                         <Formik>
                             <Form className="d-flex flex-column">
-                                <div className="d-flex flex-column my-2">
+                            <div className="d-flex flex-column my-2">
                                     <label htmlFor="heading1"> Heading 1</label>
                                     <Field
                                         className="border p-3"
@@ -247,7 +232,7 @@ function MyVerticallyCenteredModal(props) {
             <Modal.Footer className='d-flex justify-content-start'>
                 <Button
                     className='px-5 mx-auto'
-                    style={{ background: 'black', borderRadius: '1.3rem', cursore: 'pointer' }}
+                    style={{ background: 'black', borderRadius: '1.3rem' }}
                     onClick={handleSaveInModal}>Save</Button>
             </Modal.Footer>
         </Modal>
@@ -262,7 +247,7 @@ const EditModal = ({ pageCounter }) => {
             <Button
                 className='text-center editmodalbtn'
                 onClick={() => setModalShow(true)}
-                style={{ backgroundColor: 'white', color: 'black', border: '1px solid black' }}
+                style={{ backgroundColor: 'white', color: 'black', border: '1px solid black'}}
             >
                 EDIT <BsPencil />
             </Button>
@@ -272,7 +257,6 @@ const EditModal = ({ pageCounter }) => {
                 onHide={() => setModalShow(false)}
                 pageCounter={pageCounter}
             />
-            <ToastContainer />
         </>
     );
 }

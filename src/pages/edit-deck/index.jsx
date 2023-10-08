@@ -14,8 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 // react icons
 import { AiOutlineLeft } from 'react-icons/ai';
 
-import './style.css'
-
 // firebase
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -63,12 +61,12 @@ const EditDeck = () => {
       }
     };
 
-    useEffect(() => {
-        document.body.style.overflow = 'hidden';
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, []);
+    // useEffect(() => {
+    //     document.body.style.overflow = 'hidden';
+    //     return () => {
+    //         document.body.style.overflow = 'unset';
+    //     };
+    // }, []);
 
 
     return (
