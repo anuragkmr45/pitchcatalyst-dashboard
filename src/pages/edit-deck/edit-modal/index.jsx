@@ -61,7 +61,8 @@ function MyVerticallyCenteredModal(props) {
             }
 
             const storageRef = firebase.storage().ref();
-            const userImagesRef = storageRef.child(`${user.uid}/${imageName}`);
+            const folderName = 'rentainance'; 
+            const userImagesRef = storageRef.child(`${folderName}/${imageName}`);
             const imageUrl = await userImagesRef.getDownloadURL();
 
             return imageUrl;
