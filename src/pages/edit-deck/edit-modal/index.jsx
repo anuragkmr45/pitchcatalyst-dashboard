@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import { useState, useEffect } from 'react';
 import { BsPencil } from 'react-icons/bs';
 import Button from 'react-bootstrap/Button';
@@ -71,6 +73,8 @@ function MyVerticallyCenteredModal(props) {
             return null;
         }
     };
+    // const setPageName = useState("");
+
 
     const [homeImage, setHomeImage] = useState('');
     const [probImage, setProbImage] = useState('');
