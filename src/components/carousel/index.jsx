@@ -40,7 +40,9 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
                 const urls = await Promise.all(
                     imageRefs.map(async (imageName) => {
                         try {
-                            const imageRef = storage.ref(`${ userId } / ${ imageName }`);
+                            const storageRef = firebase.storage().ref();
+                           const folderName = 'rentainance'; 
+                           const imageRef = storageRef.child(`${folderName}/${imageName}`);
                             return await imageRef.getDownloadURL();
                         } catch (error) {
                             console.error('Error getting image URL:', error);
