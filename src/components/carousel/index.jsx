@@ -25,11 +25,11 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
 
     useEffect(() => {
         const fetchImages = async () => {
-            const storage = firebase.storage();
+            // const storage = firebase.storage();
             const user = firebase.auth().currentUser;
 
             if (user) {
-                const userId = user.uid;
+                // const userId = user.uid;
                 const imageRefs = [
                     '1-removebg-preview.png',
                     '2-removebg-preview.png',
