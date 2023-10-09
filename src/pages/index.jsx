@@ -50,12 +50,12 @@ const Home = () => {
         };
     }, []);
 
-    // useEffect(() => {
-    //     document.body.style.overflow = 'hidden';
-    //     return () => {
-    //         document.body.style.overflow = 'unset';
-    //     };
-    // }, []);
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, []);
 
     // useEffect(() => {
     //     const showCardWithDelay = (cardName, delay) => {
