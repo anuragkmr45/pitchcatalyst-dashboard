@@ -1,11 +1,11 @@
 @media screen and (min-width: 15in) {
-    .editmodalbtn {
+  .editmodalbtn {
     width: 6rem;
     boxshadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border: black;
   }
-  .edit-deck-modal{
-    width: 100rem
+  .edit-deck-modal {
+    width: 100rem;
   }
 }
 
@@ -16,6 +16,11 @@
     boxshadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border: black;
     position: absolute;
-    right: 46%
+    right: 46%;
   }
+}
+
+.scrollable-content {
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  border: 1px solid #ccc; /* Add a border for visual separation */
 }

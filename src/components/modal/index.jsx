@@ -34,9 +34,8 @@ const VerticallyCenteredModal = (props) => {
                     <div className="d-flex justify-content-around">
                         <h2 className='text-start'>Choose <br /> Subdomain</h2>
                         <Dropdown.Toggle
-                            variant="success"
                             id="dropdown-basic"
-                            style={{ color: 'white', width: '60%', boxShadow: '5px 4px 1px 0px rgba(0, 0, 0, 0.50)' }}>
+                            style={{ width: '60%', boxShadow: '5px 4px 1px 0px rgba(0, 0, 0, 0.50)', background: 'white', color: 'black' }}>
                             {selectedItem || (subDomains.length > 0 ? subDomains[0] : 'List Of Subdomains')}
                         </Dropdown.Toggle>
                         <Button >

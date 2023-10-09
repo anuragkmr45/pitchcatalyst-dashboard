@@ -8,7 +8,7 @@ const BadgeComponent = ({ pageCounter, toggleSidebar, sidebarVisible  }) => {
         <div onClick={toggleSidebar}>
             <h4>
                 <Badge bg="light" text="dark" className="px-lg-3">
-                    {pageCounter} /4
+                    {pageCounter} /3
                 </Badge>
             </h4>
         </div>

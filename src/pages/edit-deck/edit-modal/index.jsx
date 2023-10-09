@@ -2,10 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import { BsPencil } from 'react-icons/bs';
-import Button from 'react-bootstrap/Button';
+import { Button, Row, Col } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { Formik, Form, Field } from 'formik';
 import { MdOutlineCancel } from 'react-icons/md';
+
+
+import Page1 from '../page1'
+import Page2 from '../page2'
+import Page3 from '../page3'
+
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
@@ -63,7 +69,7 @@ function MyVerticallyCenteredModal(props) {
             }
 
             const storageRef = firebase.storage().ref();
-            const folderName = 'rentainance'; 
+            const folderName = 'rentainance';
             const userImagesRef = storageRef.child(`${folderName}/${imageName}`);
             const imageUrl = await userImagesRef.getDownloadURL();
 
@@ -81,25 +87,25 @@ function MyVerticallyCenteredModal(props) {
     const [solImage, setSolImage] = useState('');
     const [uspImage, setUspImage] = useState('');
 
-    useEffect(() => {
-        const fetchImages = async () => {
-            const user = firebase.auth().currentUser;
+    // useEffect(() => {
+    //     const fetchImages = async () => {
+    //         const user = firebase.auth().currentUser;
 
-            if (user) {
-                const homeImageUrl = await getImageUrl(user.uid, '1-removebg-preview.png');
-                const probImageUrl = await getImageUrl(user.uid, '2-removebg-preview.png');
-                const solImageUrl = await getImageUrl(user.uid, '3-removebg-preview.png');
-                const uspImageUrl = await getImageUrl(user.uid, '4-removebg-preview.png');
+    //         if (user) {
+    //             const homeImageUrl = await getImageUrl(user.uid, '1-removebg-preview.png');
+    //             const probImageUrl = await getImageUrl(user.uid, '2-removebg-preview.png');
+    //             const solImageUrl = await getImageUrl(user.uid, '3-removebg-preview.png');
+    //             const uspImageUrl = await getImageUrl(user.uid, '4-removebg-preview.png');
 
-                setHomeImage(homeImageUrl);
-                setProbImage(probImageUrl);
-                setSolImage(solImageUrl);
-                setUspImage(uspImageUrl);
-            }
-        };
+    //             setHomeImage(homeImageUrl);
+    //             setProbImage(probImageUrl);
+    //             setSolImage(solImageUrl);
+    //             setUspImage(uspImageUrl);
+    //         }
+    //     };
 
-        fetchImages();
-    }, [props.pageCounter]);
+    //     fetchImages();
+    // }, [props.pageCounter]);
 
     const handleSaveInModal = async () => {
         try {
@@ -117,17 +123,14 @@ function MyVerticallyCenteredModal(props) {
     };
 
     const slideImages = {
-        'HOME ': homeImage,
-        'PROBLEM ': probImage,
-        'SOLUTION ': solImage,
-        'USP': uspImage,
+        'HOME ': 'https://comforting-melomakarona-5f9cca.netlify.app/',
+        'PROBLEM ': 'https://charming-cannoli-992196.netlify.app/',
+        'VIDEO ': 'https://playful-hotteok-d66673.netlify.app/',
     };
 
     const slideTitles = [
         'HOME ',
         'PROBLEM ',
-        'SOLUTION ',
-        'USP ',
         'VIDEO '
     ];
 
@@ -138,6 +141,7 @@ function MyVerticallyCenteredModal(props) {
             aria-labelledby="contained-modal-title-vcenter"
             centered
             className='edit-deck-modal'
+            style={{ width: '100%' }}
         >
             <Modal.Header style={{ color: 'black ' }}>
                 <Modal.Title>
@@ -152,7 +156,7 @@ function MyVerticallyCenteredModal(props) {
                             // Handle form submission if needed
                         }}
                     >
-                        
+
                     </Formik>
                 </Modal.Title>
                 <MdOutlineCancel onClick={props.onHide} style={{ fontSize: '1.5rem', cursor: 'pointer' }} />
@@ -160,79 +164,27 @@ function MyVerticallyCenteredModal(props) {
             <Modal.Body style={{
                 color: 'black',
                 height: '50vh',
-                width: '40rem',
+                width: '100%',
                 backgroundColor: 'white'
             }} >
-                <div className='d-flex justify-content-center'>
-                    <div>
-                        <img
-                            src={slideImages[slideTitles[props.pageCounter - 1]]}
-                            alt=""
+                <Row className='d-flex justify-content-center'>
+                    <Col>
+                        <iframe
                             style={{
-                                width: '100%',
-                                position: 'relative',
-                                right: '8rem'
+                                height: '100%',
+                                background: 'white'
                             }}
-                        />
-                    </div>
-                    <div>
-                        <Formik>
-                            <Form className="d-flex flex-column">
-                            <div className="d-flex flex-column my-2">
-                                    <label htmlFor="heading1"> Heading 1</label>
-                                    <Field
-                                        className="border p-3"
-                                        placeholder='Heading 1'
-                                        type="text"
-                                        id="heading1"
-                                        name="heading1"
-                                        value={heading1}
-                                        onChange={(e) => setHeading1(e.target.value)}
-                                        style={{
-                                            borderRadius: '4px',
-                                            backgroundColor: 'inherit',
-                                            color: 'black',
-                                        }}
-                                    />
-                                </div>
-                                <div className="d-flex flex-column my-3">
-                                    <label htmlFor="heading2"> Heading 2</label>
-                                    <Field
-                                        className="border p-3"
-                                        placeholder='Heading 2'
-                                        type="text"
-                                        id="heading2"
-                                        name="heading2"
-                                        value={heading2}
-                                        onChange={(e) => setHeading2(e.target.value)}
-                                        style={{
-                                            borderRadius: '4px',
-                                            backgroundColor: 'inherit',
-                                            color: 'black',
-                                        }}
-                                    />
-                                </div>
-                                <div className="d-flex flex-column my-3">
-                                    <label htmlFor="heading3"> Heading 3</label>
-                                    <Field
-                                        className="border p-3"
-                                        placeholder='Heading 3'
-                                        type="text"
-                                        id="heading3"
-                                        name="heading3"
-                                        value={heading3}
-                                        onChange={(e) => setHeading3(e.target.value)}
-                                        style={{
-                                            borderRadius: '4px',
-                                            backgroundColor: 'inherit',
-                                            color: 'black',
-                                        }}
-                                    />
-                                </div>
-                            </Form>
-                        </Formik>
-                    </div>
-                </div>
+                            src={slideImages[slideTitles[props.pageCounter - 1]]}
+                            title={slideImages[slideTitles[props.pageCounter - 1]]} frameborder="0"></iframe>
+                    </Col>
+                    <Col>
+                        <div className="scrollable-content" style={{ height: '40vh', overflowY: 'auto' }}>
+                            {props.pageCounter === 1 && <Page1 />}
+                            {props.pageCounter === 2 && <Page2 />}
+                            {props.pageCounter === 3 && <Page3 />}
+                        </div>
+                    </Col>
+                </Row>
             </Modal.Body>
             <Modal.Footer className='d-flex justify-content-start'>
                 <Button
@@ -252,7 +204,7 @@ const EditModal = ({ pageCounter }) => {
             <Button
                 className='text-center editmodalbtn'
                 onClick={() => setModalShow(true)}
-                style={{ backgroundColor: 'white', color: 'black', border: '1px solid black'}}
+                style={{ backgroundColor: 'white', color: 'black', border: '1px solid black' }}
             >
                 EDIT <BsPencil />
             </Button>

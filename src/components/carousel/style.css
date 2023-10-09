@@ -17,25 +17,22 @@ div.item {
   transform: translateY(calc(1px * var(--r))) rotateY(calc(-10deg * var(--r)))
     translateX(calc(-450px * var(--r)));
   z-index: calc((var(--position) - var(--abs)));
-  margin: 0 2rem
+  margin: 0 2rem;
 }
 
 div.item:nth-of-type(1) {
   --offset: 1;
-  z-index: 1;
 }
 div.item:nth-of-type(2) {
   --offset: 2;
-  z-index: 9;
 }
 div.item:nth-of-type(3) {
   --offset: 3;
-  z-index: 8;
 }
-div.item:nth-of-type(4) {
+/* div.item:nth-of-type(4) {
   --offset: 4;
   z-index: 7;
-}
+} */
 /* div.item:nth-of-type(5) {
   --offset: 5;
   z-index: 6;
@@ -78,13 +75,13 @@ input:nth-of-type(3):checked ~ main#carousel {
   --position: 3;
 }
 
- input:nth-of-type(4) {
+/* input:nth-of-type(4) {
   grid-column: 5 / 6;
   grid-row: 2 / 3;
 }
 input:nth-of-type(4):checked ~ main#carousel {
   --position: 4;
-}
+} */
 
 /* input:nth-of-type(5) {
   grid-column: 6 / 7;
@@ -114,3 +111,68 @@ input:nth-of-type(5):checked ~ main#carousel {
   --position: 1;
   pointer-events: none;
 }
+
+@media screen and (min-height: 600px) and (max-height: 766px) {
+  #carousel {
+    height: 60vh;
+  }
+  #slides {
+    height: 50vh;
+    width: 18%;
+  }
+}
+
+@media screen and (min-height: 768px) and (max-height: 799px) {
+  #carousel {
+    height: 60vh;
+  }
+  #slides {
+    height: 50vh;
+    width: 20%;
+  }
+}
+@media screen and (min-height: 800px) and (max-height: 899px) {
+  #carousel {
+    height: 60vh;
+  }
+  #slides {
+    height: 50vh;
+    width: 20%;
+    z-index: 2000;
+  }
+}
+@media screen and (min-height: 900px) and (max-height: 999px) {
+  /* #carousel {
+    height: 50vh;
+  } */
+  #slides {
+    height: 50vh;
+    width: 30%;
+  }
+}
+@media screen and (min-height: 1000px) and (max-height: 1079px) {
+  #carousel {
+    height: 70vh;
+  }
+  #slides {
+    height: 50vh;
+    width: 30%;
+  }
+}
+@media screen and (min-height: 1080px) and (max-height: 1200px) {
+  #carousel {
+    height: 60vh;
+  }
+  #slides {
+    height: 50vh;
+    width: 30%;
+  }
+}
+
+  #carousel {
+    height: 60vh;
+  }
+  #slides {
+    height: 50vh;
+    width: 20%;
+  }
