@@ -17,8 +17,8 @@ import 'simplebar-react/dist/simplebar.min.css';
 
 import './style.css';
 
-const siteId = '101425804';
-const apiKey = 'ca8bf523fe292bbd';
+const siteId = '101429394';
+const apiKey = 'e7f17c66d7f747c56cab03a2c6085026';
 
 function Analytics() {
   const [refreshCounter, setRefreshCounter] = useState(0);
