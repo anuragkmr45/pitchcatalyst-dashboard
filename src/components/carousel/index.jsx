@@ -92,7 +92,7 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
                             }`}
                         style={{ height: '100vh' }}
                     >
-                        <iframe src={imageUrl} title={imageUrl} id="slides" style={{ background: 'white' }}></iframe>
+                        <iframe src={imageUrl} title={imageUrl} id="slides" className="mx-5" style={{ background: 'white' }}></iframe>
                     </div>
                 ))}
 

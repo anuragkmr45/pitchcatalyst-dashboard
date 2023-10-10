@@ -1,11 +1,95 @@
-@media screen and (min-width: 15in) {
-    
+@media screen and (height: 600px) and (width: 767px) {
+  .content-justify {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .collabourate {
+    position: relative;
+    bottom: 76px;
+  }
+  ..mainpage-container{
+max-height: 600px;
+min-height: 768px;
+}
+    }
+
+@media screen and (height: 700px) and (width: 1400px) {
+  .box-container {
+    margin: -6% 0;
+  }
+}
+@media screen and (min-height: 768px) and (max-height: 799px) {
+  .box-container {
+    margin: 5.5% 0;
+  }
+        ..mainpage-container{
+    max-height: 769px;
+    min-height: 800px;
+  }
+}
+@media screen and (min-height: 800px) and (max-height: 899px) {
+  .content-justify {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .collabourate {
+    position: relative;
+    bottom: 7%;
+  }
+        ..mainpage-container{
+    max-height: 801px;
+    min-height: 900px;
+  }
+}
+@media screen and (min-height: 900px) and (max-height: 1000px) {
+  .box-container {
+    margin: 9.8% 0;
+  }
+      ..mainpage-container{
+    max-height: 900px;
+    min-height: 1000px;
+  }
+}
+@media screen and (height: 900px) and (width: 1600px){
+      .box-container {
+    margin: 8% 0;
+  }
 }
 
-@media screen and (min-width: 13in) {
-  /* Your CSS styles for screens greater than 13 inches go here */
+@media screen and (height: 1680px) and (width: 1050px){
+      .box-container {
+    margin: 8% 0;
+  }
 }
 
-@media screen and (min-width: 11in) {
-    
+@media screen and (min-height: 1001px) and (max-height: 1079px) {
+  .box-container {
+    margin: 11.5% 0;
+  }
+    ..mainpage-container{
+    max-height: 1001px;
+    min-height: 1080px;
+  }
+}
+@media screen and (min-height: 1080px) and (max-height: 1200px) {
+  .content-justify {
+    display: flex;
+    justify-content: space-around;
+  }
+    .collabourate {
+    position: relative;
+    bottom: 10.5%;
+  }
+}
+@media screen and (height: 1440px) and (width: 2560px) {
+  .content-justify {
+    display: flex;
+    justify-content: space-around;
+  }
+    .collabourate {
+    position: relative;
+    bottom: 10.5%;
+  }
 }
