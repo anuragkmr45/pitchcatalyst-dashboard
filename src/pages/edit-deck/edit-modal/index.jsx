@@ -186,17 +186,17 @@ function MyVerticallyCenteredModal(props) {
                     </Col>
                 </Row>
             </Modal.Body>
-            <Modal.Footer className='d-flex justify-content-start'>
+            {/* <Modal.Footer className='d-flex justify-content-start'>
                 <Button
                     className='px-5 mx-auto'
                     style={{ background: 'black', borderRadius: '1.3rem' }}
                     onClick={handleSaveInModal}>Save</Button>
-            </Modal.Footer>
+            </Modal.Footer> */}
         </Modal>
     );
 }
 
-const EditModal = ({ pageCounter }) => {
+const EditModal = ({ pageCounter, closeModal }) => {
     const [modalShow, setModalShow] = useState(false);
 
     return (

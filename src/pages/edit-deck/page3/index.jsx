@@ -1,14 +1,35 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/storage';
+import 'firebase/compat/firestore';
 
 const MyForm = () => {
+    const user = firebase.auth().currentUser; // Get the logged-in user
+    const userId = user ? user.uid : ''; // Get the user's UID
+
     const formik = useFormik({
         initialValues: {
             videoFile: null,
             feedback: '',
         },
-        onSubmit: (values) => {
-            // Handle form submission here
+        onSubmit: async (values) => {
+            // Create references to Firebase Storage and Firestore
+            const storageRef = firebase.storage().ref();
+            const firestore = firebase.firestore();
+
+            // Store the video file in Firebase Storage
+            if (values.videoFile) {
+                const videoFileRef = storageRef.child(`${userId}/video/${values.videoFile.name}`);
+                await videoFileRef.put(values.videoFile);
+            }
+
+            // Store the video feedback in Firestore
+            await firestore.collection(userId).doc('VIDEO').set({
+                feedback: values.feedback,
+            });
+
             console.log('Form values:', values);
         },
     });
@@ -38,6 +59,8 @@ const MyForm = () => {
                     onChange={formik.handleChange}
                 ></textarea>
             </div>
+
+            <button type="submit">Submit</button>
         </form>
     );
 };

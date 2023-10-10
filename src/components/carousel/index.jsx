@@ -16,6 +16,7 @@ const CarouselComp = ({ pageCounter, setPageCounter }) => {
     console.log(imageUrls)
 
     const handlePrevSlide = () => {
+        console.log("prev")
         if (activeSlide > 1) {
             setActiveSlide(activeSlide - 1);
             setPageCounter((prevCounter) => prevCounter - 1);
