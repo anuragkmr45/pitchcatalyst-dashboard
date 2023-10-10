@@ -162,8 +162,8 @@ const Home = () => {
                     <div className='index-text'>
                         <p className='text-center' style={{ fontSize: '100%' }} >You Can <b>Track Our Work</b> </p>
                     </div>
-                    <Row className="box-container" style={{ overflowX: 'hidden', overflowY: 'hidden' }}>
-                        <Col>
+                    <div className="box-container d-flex justify-content-around" style={{ overflowX: 'hidden', overflowY: 'hidden' }}>
+                        <div>
                             <ServiceCard
                                 navigationLink="/deck-editor"
                                 icon={<RiEditBoxFill />}
@@ -171,32 +171,32 @@ const Home = () => {
                                 childText="Now You Can Edit Your Animated Pitch Deck Anytime Anywhere"
                             />
 
-                        </Col>
-                        <Col>
+                        </div>
+                        <div>
                             <ServiceCard
                                 navigationLink="/analytics"
                                 icon={<IoMdAnalytics />}
                                 titleText="Analytics"
                                 childText="Now You Can Check Your Appearance Anytime Anywhere"
                             />
-                        </Col>
-                        <Col>
+                        </div>
+                        <div>
                             <ServiceCard
                                 navigationLink="/create-subdomain"
                                 icon={<TbWorldCode />}
                                 titleText="Create Subdomain"
                                 childText="Now Present World Wide"
                             />
-                        </Col>
-                        <Col>
+                        </div>
+                        <div>
                             <ServiceCard
                                 navigationLink="/pitchAI-editor"
                                 icon={<GiArtificialIntelligence />}
                                 titleText="Pitch AI"
                                 childText="Make Your Deck Best Presentable Using AI Tools"
                             />
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
 
                     <div
                         className='mx-auto collabourate'
