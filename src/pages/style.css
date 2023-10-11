@@ -9,7 +9,28 @@
   transform: translateY(0);
 }
 
-.service-container {
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Set the minimum height to 100% of the viewport height */
+}
+
+.content-container {
+    flex: 1; /* Make the content container take up the available space */
+    padding: 20px; /* Adjust padding as needed */
+}
+
+.collabourator-row {
+    align-self: flex-end; /* Align the collabourator at the bottom of the container */
+}
+
+.mainpage-container{
+  width: 100%;
+  height: 85vh;
+  background: url("https://rentblob.blob.core.windows.net/pitch/img/Pitch-Catalyst/home-page-imgs/vector53.png");
+  background-size: cover
+}
+/* .service-container {
   height: 100vh;
   border-right: 0.2rem solid #e1ff00;
   border-left: 0.2rem solid #e1ff00;
@@ -24,9 +45,9 @@
 .collabourate {
   width: 80%;
   margin-top: 3%;
-}
+} */
 
-@media screen and (min-height: 600px) and (max-height: 767px) {
+/* @media screen and (min-height: 600px) and (max-height: 767px) {
   .content-justify {
     display: flex;
     justify-content: space-around;
@@ -120,4 +141,4 @@ min-height: 768px;
     position: relative;
     bottom: 10.5%;
   }
-}
+} */

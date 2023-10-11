@@ -9,7 +9,7 @@ const ServiceCard = ({ navigationLink, icon, titleText, childText }) => {
 
 
     const iconStyle = {
-        fontSize: '4rem',
+        fontSize: '5rem',
         border: '1px solid #E1FF02',
         borderRadius: '4rem',
         padding: '0.5rem',
@@ -24,8 +24,8 @@ const ServiceCard = ({ navigationLink, icon, titleText, childText }) => {
     };
 
     return (
-        <Tilt options={{ reverse: false, scale: 1 }} className='text-center mx-1 px-auto'>
-            <div className="cardStyle py-0 mx-auto px-auto text-center" style={{ borderRadius: '1rem'}}>
+        <Tilt options={{ reverse: false, scale: 1 }}>
+            <div className="cardStyle mx-auto px-auto text-center py-lg-5 py-md-3" style={{ borderRadius: '1rem', minHeight: '50%'}}>
                 <Link to={navigationLink} style={{ color: 'inherit', textDecoration: 'none' }}>
                     {React.cloneElement(icon, { style: iconStyle })}
                     <Card.Body style={cardBodyStyle}>
