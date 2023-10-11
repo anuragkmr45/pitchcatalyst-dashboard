@@ -11,7 +11,7 @@ import { Row, Col } from 'react-bootstrap';
 
 const ServiceCardGrp = () => {
     return (
-        <Row className='mx-auto text-center'>
+        <Row>
             <Col>
                 <ServiceCard
                     navigationLink="/deck-editor"
