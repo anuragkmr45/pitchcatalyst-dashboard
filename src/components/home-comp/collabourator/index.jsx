@@ -15,8 +15,6 @@ const Collabourator = () => {
                 border: '1px solid #E1FF02',
                 borderRadius: '0.5rem',
                 width: '65%',
-                position: 'sticky',
-                top: '0px'
             }}>
             <div className="py-lg-4 py-md-3 mx-auto">
                 <div className="d-flex justify-content-around my-auto">

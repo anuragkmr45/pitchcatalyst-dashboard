@@ -25,7 +25,7 @@ const ServiceCard = ({ navigationLink, icon, titleText, childText }) => {
 
     return (
         <Tilt options={{ reverse: false, scale: 1 }}>
-            <div className="cardStyle mx-auto px-auto text-center py-lg-5 py-md-3" style={{ borderRadius: '1rem', minHeight: '50%'}}>
+            <div className="cardStyle mx-auto px-auto text-center py-lg-5 py-md-3" style={{ borderRadius: '1rem', maxHeight: '50%'}}>
                 <Link to={navigationLink} style={{ color: 'inherit', textDecoration: 'none' }}>
                     {React.cloneElement(icon, { style: iconStyle })}
                     <Card.Body style={cardBodyStyle}>

@@ -24,12 +24,34 @@
     align-self: flex-end; /* Align the collabourator at the bottom of the container */
 }
 
-.mainpage-container{
-  width: 100%;
+/* .mainpage-container{
+  width: 100vw;
   height: 85vh;
   background: url("https://rentblob.blob.core.windows.net/pitch/img/Pitch-Catalyst/home-page-imgs/vector53.png");
-  background-size: cover
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+} */
+.mainpage-container {
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns components with space between them */
 }
+
+.hero {
+    flex: 1; /* Hero expands to the top */
+}
+
+.centered {
+    flex: 1; /* ServiceCardGrp expands and centers vertically */
+}
+
+.collabourator {
+    flex: 0; /* Collabourator remains at the bottom */
+}
+
 /* .service-container {
   height: 100vh;
   border-right: 0.2rem solid #e1ff00;

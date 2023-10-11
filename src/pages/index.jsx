@@ -22,8 +22,8 @@ const Home = () => {
     return (
         <div className={`mainpage-container fade-in${fadeIn ? 'active' : ''}`} style={{ overflowX: 'hidden' }}>
             <Hero />
-            <ServiceCardGrp  />
-            <Collabourator />
+            <ServiceCardGrp className="centered"  />
+            <Collabourator className="collabourator" />
         </div >
     );
 };
