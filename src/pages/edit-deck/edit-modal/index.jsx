@@ -87,26 +87,6 @@ function MyVerticallyCenteredModal(props) {
     const [solImage, setSolImage] = useState('');
     const [uspImage, setUspImage] = useState('');
 
-    // useEffect(() => {
-    //     const fetchImages = async () => {
-    //         const user = firebase.auth().currentUser;
-
-    //         if (user) {
-    //             const homeImageUrl = await getImageUrl(user.uid, '1-removebg-preview.png');
-    //             const probImageUrl = await getImageUrl(user.uid, '2-removebg-preview.png');
-    //             const solImageUrl = await getImageUrl(user.uid, '3-removebg-preview.png');
-    //             const uspImageUrl = await getImageUrl(user.uid, '4-removebg-preview.png');
-
-    //             setHomeImage(homeImageUrl);
-    //             setProbImage(probImageUrl);
-    //             setSolImage(solImageUrl);
-    //             setUspImage(uspImageUrl);
-    //         }
-    //     };
-
-    //     fetchImages();
-    // }, [props.pageCounter]);
-
     const handleSaveInModal = async () => {
         try {
             const editedContent = {
@@ -186,12 +166,6 @@ function MyVerticallyCenteredModal(props) {
                     </Col>
                 </Row>
             </Modal.Body>
-            {/* <Modal.Footer className='d-flex justify-content-start'>
-                <Button
-                    className='px-5 mx-auto'
-                    style={{ background: 'black', borderRadius: '1.3rem' }}
-                    onClick={handleSaveInModal}>Save</Button>
-            </Modal.Footer> */}
         </Modal>
     );
 }
