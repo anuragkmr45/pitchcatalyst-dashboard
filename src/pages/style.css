@@ -37,7 +37,9 @@
     height: 85vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Aligns components with space between them */
+    justify-content: space-between; 
+  background: url("https://rentblob.blob.core.windows.net/pitch/img/Pitch-Catalyst/home-page-imgs/vector53.png");
+  background-size: cover;
 }
 
 .hero {
